@@ -8,12 +8,12 @@ import sys
 import time
 import readchar
 
-constLeftPWM = 17
-constLeftIN1 = 27
-constLeftIN2 = 22
-constRightPWM = 16
-constRightIN1 = 20
-constRightIN2 = 21
+constLeftPWM = 17 #GPIO No.
+constLeftIN1 = 27 #GPIO No.
+constLeftIN2 = 22 #GPIO No.
+constRightPWM = 16 #GPIO No.
+constRightIN1 = 20 #GPIO No.
+constRightIN2 = 21 #GPIO No.
 
 GPIO.setwarnings( False )
 GPIO.setmode( GPIO.BCM )
@@ -78,6 +78,8 @@ def end():
 ######################################
 if __name__ == '__main__':
 
+	print('   [W]\n[A][S][D]\n[X] to STOP\n[Q] to QUIT')
+
 	try:
 		while True:
 			kb = readchar.readchar()
@@ -86,13 +88,13 @@ if __name__ == '__main__':
 			if kb == 'w':
 				speedHigh()
 				moveForward()
-			if kb == 'z':
+			if kb == 's':
 				speedHigh()
 				moveBack()
 			if kb == 'a':
 				speedHigh()
 				moveLeft()
-			if kb == 's':
+			if kb == 'd':
 				speedHigh()
 				moveRight()
 			if kb == 'x':
