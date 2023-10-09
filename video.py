@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# video.py
+
 import cv2
 
 camera = cv2.VideoCapture(0) # 0 = Device ID
@@ -14,6 +18,7 @@ while True:
 
   #frame4x = cv2.resize(frame, (1024,800))
   #cv2.imshow("Frame", cv2.flip(frame4x,0))
+  # cv2flip 0:上下反転 1:左右反転 -1:上下左右反転
   cv2.imshow("Frame", cv2.flip(frame,0))
   key = cv2.waitKey(1)
 
