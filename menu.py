@@ -1,3 +1,4 @@
+cat menu.py
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
@@ -12,11 +13,13 @@ try:
     print (u'[d] ラズタンク・キー操作［TB6612FNG］, tank4_c-type.py')
     print (u'[e] ラズタンク・キー操作［ノーマルTA7721P］, tank.py')
     print (u'[f] サーボモーター［GPIO14］, servo2.py')
+    print (u'[g] 超音波センサー, sonic.py')
+    print (u'[h] 音声合成[時刻お知らせ], saytime.py')
     print (u'[0] End')
 
     inputWord = input('>>>  ')
 
-    print ('*** debug *** [' + str(inputWord) + '] was selected.')
+    #print ('*** debug *** [' + str(inputWord) + '] was selected.')
 
     if inputWord == 'c':
         os.system( "python video.py" )
@@ -30,6 +33,12 @@ try:
     if inputWord == 'f':
         os.system( "python servo2.py" )
 
+    if inputWord == 'g':
+        os.system( "python sonic.py" )
+
+    if inputWord == 'h':
+        os.system( "python saytime.py" )
+
     elif inputWord == '0':
         break
 
@@ -41,5 +50,3 @@ except KeyboardInterrupt:
 
 finally:
   print('See you,')
-
-
