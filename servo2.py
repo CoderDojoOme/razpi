@@ -5,7 +5,7 @@ import time
 import sys
 import readchar
 
-contPIN = 18
+contPIN = 14
 GPIO.setmode( GPIO.BCM )
 GPIO.setup( contPIN, GPIO.OUT )
 servo = GPIO.PWM( contPIN, 50 )  #50Hz
