@@ -8,7 +8,10 @@ from timeout_decorator import timeout
 import numpy as np
 import RPi.GPIO as GPIO
 import readchar
+<<<<<<< HEAD
 import sonic
+=======
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
 
 # -------------- カメラ設定
 camera = cv2.VideoCapture(0) # 0 = Device ID
@@ -64,12 +67,16 @@ def main():
       # nlabels=ラベル個数, labels=ラベリング画像, stats=[左上のx座標,y座標,幅,高さ,面積],center=ラベル毎の重心情報
       nlabels, labels, stats, center = cv2.connectedComponentsWithStats(mask)
       max_index = np.argmax(stats[:,4])    # 最大面積の赤色箇所を選ぶ
+<<<<<<< HEAD
       print(stats)
+=======
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
       #円を描画
       #for i in range(nlabels-1):
       #  cv2.circle(imgPic, (int(center[i+1][0]), int(center[i+1][1])), 10, (210, 200, 0), thickness=10)
       #print(nlabels, labels, stats, center, max_index)
       # 赤色を検出していないときはラベル数は１個なので、検出できた２個以上のときに丸印を追加する。
+<<<<<<< HEAD
       intDistance = sonic.measure()
       cv2.putText( imgPic, str(intDistance) + "cm", (30,70), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (200,10,20) )
       if (nlabels > 1):
@@ -97,6 +104,24 @@ def main():
           else:
             speedHigh()
             moveForward()
+=======
+      if (nlabels > 1):
+        cv2.circle(imgPic, (int(center[max_index+1][0]), int(center[max_index+1][1])), 10, (210, 210, 0), thickness=10)
+        # 画面[640]の半分よりもどちら？
+        intX = int(center[max_index+1][0])
+        if ( intX > 420 ):
+          cv2.putText( imgPic, "Go Right", (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0) )
+          speedCurveRight()
+          moveForward()
+        elif ( intX < 220 ):
+          cv2.putText( imgPic, "Go Left", (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0) )
+          speedCurveLeft()
+          moveForward()
+        else:
+          cv2.putText( imgPic, "Go Straight", (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0) )
+          speedHigh()
+          moveForward()
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
       else:
         #検出しなかったとき
         cv2.putText( imgPic, "No Red found", (30,50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255,0,0) )
@@ -118,7 +143,11 @@ def main():
       sys.exit()
 
 # 赤色検出
+<<<<<<< HEAD
 @timeout(3) # measure()関数のタイムアウト時間を設定する
+=======
+@timeout(5) # measure()関数のタイムアウト時間を設定する
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
 def detectRed( img ):
   hsv = cv2.cvtColor( img, cv2.COLOR_BGR2HSV )  # 色空間をHSVに変換(色相H, 彩度S, 明度V)
   # 領域1

@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+$ cat video-sonic.py 
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
@@ -45,7 +49,10 @@ def main():
       imgFrame = cv2.flip(frame,-1)
       intDistance = measure()
       #print( strDistance )
+<<<<<<< HEAD
       tmpColor = (10,10,10)
+=======
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
       if ( intDistance < 7 ):
         tmpColor = colorRed
       elif ( intDistance < 20 ):
@@ -54,14 +61,22 @@ def main():
         tmpColor = colorGreen
       # 距離
       intLength = 1
+<<<<<<< HEAD
       if ( intDistance > 50 or intDistance < 0 ):
+=======
+      if ( intDistance > 50 ):
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
         intLength = 50
       else:
         intLength = intDistance
       # rectangle( image, 左上座標, 右下座標, 色, 線の太さ[負は塗りつぶし])
       cv2.rectangle( imgFrame, graphPosition, ( 10 + intLength * 10, 30 ), tmpColor, -1 )
       # putText( image, text, location, font, fontScale, color)
+<<<<<<< HEAD
       cv2.putText( imgFrame, str(intDistance) + " cm", (30,50), cv2.FONT_HERSHEY_SIMPLEX, fontSize, fontColor)
+=======
+      cv2.putText( imgFrame, str(intDistance), (30,50), cv2.FONT_HERSHEY_SIMPLEX, fontSize, fontColor)
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
 
       # 動画画像を表示する
       # frame4x = cv2.resize(frame, (1024,800))
@@ -70,12 +85,15 @@ def main():
       cv2.imshow("Frame", imgFrame)
       key = cv2.waitKey(1)
 
+<<<<<<< HEAD
     except TypeError:
       print( intLength )
       print( tmpColor )
       print( graphPosition )
       print( 'タイプエラー：たぶん' )
 
+=======
+>>>>>>> 535e72fda6008108e0ece790676f9a59ad67ee1b
     except TimeoutError:
       print( '計測タイムアウト' )
 
